@@ -7,12 +7,11 @@ Examples:
 
 */
 function doubleValues(arr) {
-    const returnDouble = [];
-    arr.forEach((item) => {
-      returnDouble.push(item *= 2);
-      console.log(returnDouble);
+    const doubledValues = [];
+    arr.forEach((num) => {
+        doubledValues.push(num *= 2);
     })
-    return returnDouble;
+    return doubledValues;
 }
 
 /*
@@ -23,8 +22,14 @@ Examples:
     onlyEvenValues([5,1,2,3,10]) // [2,10]
 
 */
-function onlyEvenValues(arr){
-    
+function onlyEvenValues(arr) {
+    const evenNums = [];
+    arr.forEach((num) => {
+        if (num % 2 === 0) {
+            evenNums.push(num);
+        }
+    })
+    return evenNums;
 }
 
 /*
@@ -36,7 +41,12 @@ Examples:
 
 */
 function showFirstAndLast(arr){
-    
+    const firstAndLastLettersOnly = [];
+    arr.forEach((str) => {
+        const firstAndLast = str.charAt(0) + str.charAt(str.length - 1);
+        firstAndLastLettersOnly.push(firstAndLast);
+    })
+    return firstAndLastLettersOnly;
 }
 
 /*
