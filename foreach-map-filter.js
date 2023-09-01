@@ -197,11 +197,11 @@ Examples:
 */
 
 function findInObj(arr, key, searchValue) {
-    arr.filter((obj) => {
+    return arr.filter((obj) => {
         if (obj[key] === searchValue) {
             return obj;
         }
-    })
+    })[0];
 }
 
 /*
@@ -211,9 +211,27 @@ Examples:
     removeVowels('Elie') // ('l')
     removeVowels('TIM') // ('tm')
     removeVowels('ZZZZZZ') // ('zzzzzz')
+
+to accomplish this... i need to:
+1. look at each character in the string and determine if it is NOT in the list of vowels
+2. 
+
+
 */
 
-function removeVowels(str) {}
+function removeVowels(str) {
+    const vowels = 'aeiou';
+    const characters = str.toLowerCase().split('');
+    const consonants = characters
+        .filter((char) => {
+            if (!vowels.match(char)) {
+                return(char);
+            }
+        })
+        .join('');
+
+    return consonants;
+}
 
 /*
 Write a function called doubleOddNumbers which accepts an array and returns a new array with all of the odd numbers doubled (HINT - you can use map and filter to double and then filter the odd numbers).
@@ -223,4 +241,12 @@ Examples:
     doubleOddNumbers([4,4,4,4,4]) // []
 */
 
-function doubleOddNumbers(arr) {}
+function doubleOddNumbers(arr) {
+    return arr
+        .filter((num) => {
+            return num % 2 != 0;
+        })
+        .map((oddNum => {
+            return oddNum *= 2;
+        }))
+}
